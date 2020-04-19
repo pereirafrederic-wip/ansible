@@ -7,6 +7,15 @@
     - name: installation de git
       apt: name=git update_cache=yes
     - name: installation vim
-      apt: name=vim
-    -
+      apt: name=vim state=latest
+    - name: installation liste
+      apt: name={{item}} update_cache=yes
+      with_items:
+        - git
+        - vim
+        - zsh
+    - name: creation d'un utilisateur
+      user: name=monuser comment="c'est mon user" shell=usr/bin/zsh
+    - name: ajout clé ssh
+      autorized_keys: user=monuser key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 ...
