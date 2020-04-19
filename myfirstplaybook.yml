@@ -17,5 +17,5 @@
     - name: creation d'un utilisateur
       user: name=monuser comment="c'est mon user" shell=usr/bin/zsh
     - name: ajout clé ssh
-      autorized_keys: user=monuser key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      autorized_key: user=monuser key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 ...
