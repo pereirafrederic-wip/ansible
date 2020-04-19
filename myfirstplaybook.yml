@@ -1,0 +1,12 @@
+---
+- name: installation des serveurs web
+  hosts: [front_group]
+  remote_user: root
+  
+  tasks :
+    - name: installation de git
+      apt: name=git update_cache=yes
+    - name: installation vim
+      apt: name=vim
+    -
+...
